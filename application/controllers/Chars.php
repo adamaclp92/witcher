@@ -21,4 +21,22 @@
             $this->load->view('chars/view', $data);
             $this->load->view('templates/footer');
         }
+
+        public function create(){
+            //ez ugyanaz, mint a create.php view-ban a title
+            $data['title'] = 'Karakter készítő';
+
+            $this->form_validation->set_rules('name', 'Name', 'required');
+            $this->form_validation->set_rules('description', 'Description', 'required');
+
+            if($this->form_validation->run() === FALSE){
+                $this->load->view('templates/header');
+                $this->load->view('chars/create', $data);
+                $this->load->view('templates/footer');
+            }else{
+                $this->char_model->create_char();
+                redirect('chars');
+            }
+
+        }
     }

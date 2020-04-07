@@ -1,4 +1,5 @@
 <h2><?= $title ?></h2>
+<br>
 <?php foreach($chars as $char) : ?>
     <h3><?php echo $char['name']; ?></h3>
     <h6><?php echo $char['description']; ?></h6>

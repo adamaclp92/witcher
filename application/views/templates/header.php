@@ -20,8 +20,11 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>chars">Karakterek </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>chars/create">Karakter készítő </a>
+      </li>
     </ul>
   </div>
 </nav>
-
+<br>
 <div class="container">
