@@ -37,6 +37,28 @@
                 $this->char_model->create_char();
                 redirect('chars');
             }
-
         }
+
+        public function delete($id){
+            $this->char_model->delete_char($id);
+            redirect('chars');
+         }
+
+         public function edit($slug){
+            $data['char'] = $this->char_model->get_chars($slug);
+
+            if(empty($data['char'])){
+                show_404();
+            }
+            $data['title'] = 'Karakter módosítás';
+            $this->load->view('templates/header');
+            $this->load->view('chars/edit', $data);
+            $this->load->view('templates/footer');
+        }
+
+        public function update(){
+            $this->char_model->update_char();
+            redirect('chars');
+        }
+
     }

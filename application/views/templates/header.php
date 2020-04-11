@@ -2,6 +2,7 @@
     <head>
         <title>Witcher</title>
         <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
+        <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
       </head> 
     
     <body>

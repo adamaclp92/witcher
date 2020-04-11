@@ -9,7 +9,7 @@
   </div>
   <div class="form-group">
     <label>Leírás</label>
-    <textarea class="form-control" name="description" placeholder="Add meg a karakter leírását!"></textarea>
+    <textarea id="" class="form-control" name="description" placeholder="Add meg a karakter leírását!"></textarea>
   </div>
   
   <button type="submit" class="btn btn-secondary">Elfogad</button>

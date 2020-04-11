@@ -23,4 +23,24 @@
             );
             return $this->db->insert('characters', $data);
         }
+
+        public function delete_char($id){
+            $this->db->where('id', $id);
+            $this->db->delete('characters');
+            return true;
+        }
+
+        public function update_char(){
+            $slug = url_title($this->input->post('name'));
+
+            $data = array(
+                'name' => $this->input->post('name'),
+                'slug' => $slug,
+                'description' => $this->input->post('description')
+            );
+
+            $this->db->where('id', $this->input->post('id'));
+            return $this->db->update('characters', $data);
+        
+        }
     }
