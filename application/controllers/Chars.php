@@ -10,8 +10,8 @@
             $this->load->view('templates/footer');
         }
 
-        public function view($slug = NULL){
-            $data['char'] = $this->char_model->get_chars($slug);
+        public function view($id = NULL){
+            $data['char'] = $this->char_model->get_chars($id);
 
             if(empty($data['char'])){
                 show_404();
@@ -25,6 +25,8 @@
         public function create(){
             //ez ugyanaz, mint a create.php view-ban a title
             $data['title'] = 'Karakter készítő';
+            $data['races'] = $this->char_model->get_races();
+        
 
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('description', 'Description', 'required');
@@ -34,7 +36,23 @@
                 $this->load->view('chars/create', $data);
                 $this->load->view('templates/footer');
             }else{
-                $this->char_model->create_char();
+                $config['upload_path'] = './assets';
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['max_width'] = '500';
+                $config['max_height'] = '500';
+                
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('userfile')){
+                    $errors = array('error' =>$this->upload->display_errors());
+                    $char_image = 'noimage.jpg';
+                }else{
+                    $data = array('upload_data' => $this->upload->data());
+                    $char_image= $_FILES['userfile']['name'];
+                }
+
+                $this->char_model->create_char($char_image);
                 redirect('chars');
             }
         }
@@ -44,8 +62,9 @@
             redirect('chars');
          }
 
-         public function edit($slug){
-            $data['char'] = $this->char_model->get_chars($slug);
+         public function edit($id){
+            $data['char'] = $this->char_model->get_chars($id);
+            $data['races'] = $this->char_model->get_races();
 
             if(empty($data['char'])){
                 show_404();

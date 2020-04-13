@@ -3,23 +3,25 @@
         public function __construct(){
             $this->load->database();
         }
-        public function get_chars($slug = FALSE){
-            if($slug===FALSE){
+        public function get_chars($id = FALSE){
+            $this->db->join('races', 'races.raceid = characters.race_id');
+            if($id===FALSE){ 
                 $query = $this->db->get('characters');
                 return $query->result_array();
             }
-           
-            $query = $this->db->get_where('characters', array('slug'=> $slug));
+            $query = $this->db->get_where('characters', array('characters.id'=> $id));
             return $query->row_array();
         }
 
-        public function create_char(){
-            $slug = url_title($this->input->post('name'));
+        public function create_char($char_image){
+            $id = url_title($this->input->post('name'));
 
             $data = array(
                 'name' => $this->input->post('name'),
-                'slug' => $slug,
-                'description' => $this->input->post('description')
+                'id' => $id,
+                'description' => $this->input->post('description'),
+                'race_id' => $this->input->post('race_id'),
+                'char_image' => $char_image
             );
             return $this->db->insert('characters', $data);
         }
@@ -31,16 +33,23 @@
         }
 
         public function update_char(){
-            $slug = url_title($this->input->post('name'));
+            $id = url_title($this->input->post('name'));
 
             $data = array(
                 'name' => $this->input->post('name'),
-                'slug' => $slug,
-                'description' => $this->input->post('description')
+                'id' => $id,
+                'description' => $this->input->post('description'),
+                'race_id' => $this->input->post('race_id')
             );
 
             $this->db->where('id', $this->input->post('id'));
             return $this->db->update('characters', $data);
         
+        }
+
+        public function get_races(){
+            $this->db->order_by('racename');
+            $query = $this->db->get('races');
+            return $query->result_array(); 
         }
     }
