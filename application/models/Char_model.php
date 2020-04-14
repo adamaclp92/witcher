@@ -52,4 +52,11 @@
             $query = $this->db->get('races');
             return $query->result_array(); 
         }
+
+        public function get_chars_by_race($race_id){
+            $this->db->order_by('characters.id', 'ASC');
+            $this->db->join('races', 'races.raceid = characters.race_id');
+                $query = $this->db->get_where('characters', array('race_id' => $race_id));
+                return $query->result_array();
+        }
     }

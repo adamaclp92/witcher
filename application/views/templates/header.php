@@ -24,6 +24,12 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>chars/create">Karakter készítő </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>races">Fajok </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>races/create">Faj létrehozása</a>
+      </li>
     </ul>
   </div>
 </nav>

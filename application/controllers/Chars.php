@@ -23,11 +23,9 @@
         }
 
         public function create(){
-            //ez ugyanaz, mint a create.php view-ban a title
             $data['title'] = 'Karakter készítő';
             $data['races'] = $this->char_model->get_races();
         
-
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('description', 'Description', 'required');
 
@@ -37,7 +35,7 @@
                 $this->load->view('templates/footer');
             }else{
                 $config['upload_path'] = './assets';
-                $config['allowed_types'] = 'gif|jpg|png';
+                $config['allowed_types'] = 'gif|jpg|png|jfif';
                 $config['max_size'] = '2048';
                 $config['max_width'] = '500';
                 $config['max_height'] = '500';
