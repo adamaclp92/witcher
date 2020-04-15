@@ -2,7 +2,7 @@
 CREATE TABLE `witcher`.`characters` ( `id` INT NOT NULL AUTO_INCREMENT , 
                                 `name` VARCHAR(255) NOT NULL , 
                                 `slug` VARCHAR(255) NOT NULL ,
-                                'description' VARCHAR(1000) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+                                'description' TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 CREATE TABLE `witcher`.`races` ( `raceid` INT NOT NULL AUTO_INCREMENT , 
                                 `racename` VARCHAR(255) NOT NULL , 
