@@ -20,6 +20,9 @@
                 $this->load->view('templates/footer');
             }else{
                 $this->race_model->create_race();
+
+                $this->session->set_flashdata('race_created', 'A faj elkészült.');
+
                 redirect('races');
             }
         }
@@ -35,6 +38,9 @@
 
         public function delete($raceid){
             $this->race_model->delete_race($raceid);
+
+            $this->session->set_flashdata('race_deleted', 'A faj törölve.');
+
             redirect('races');
          }
 

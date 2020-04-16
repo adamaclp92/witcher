@@ -11,3 +11,10 @@ CREATE TABLE `witcher`.`races` ( `raceid` INT NOT NULL AUTO_INCREMENT ,
                                 ALTER TABLE `characters` ADD `race_id` INT NOT NULL AFTER `description`;
 
                                 ALTER TABLE `characters` ADD `char_image` VARCHAR(255) NOT NULL AFTER `description`;
+
+CREATE TABLE `witcher`.`users` ( `userid` INT NOT NULL AUTO_INCREMENT , 
+                                `name` VARCHAR(255) NOT NULL , 
+                                `email` VARCHAR(255) NOT NULL , 
+                                `username` VARCHAR(255) NOT NULL , 
+                                `password` VARCHAR(255) NOT NULL , 
+                                PRIMARY KEY (`userid`)) ENGINE = InnoDB;                             

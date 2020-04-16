@@ -51,12 +51,18 @@
                 }
 
                 $this->char_model->create_char($char_image);
+
+                $this->session->set_flashdata('character_created', 'A karakter elkészült.');
+
                 redirect('chars');
             }
         }
 
         public function delete($id){
             $this->char_model->delete_char($id);
+
+            $this->session->set_flashdata('character_deleted', 'A karakter törölve.');
+
             redirect('chars');
          }
 
@@ -75,6 +81,9 @@
 
         public function update(){
             $this->char_model->update_char();
+
+            $this->session->set_flashdata('character_updated', 'A karakter módosítva.');
+
             redirect('chars');
         }
 

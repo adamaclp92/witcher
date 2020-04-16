@@ -2,7 +2,7 @@
 
 <div class="row">
         <div class="col-md-3">
-            <img src="<?php echo site_url(); ?>/assets/<?php echo $char['char_image']; ?>">
+            <img style="height: 100%; width: 100%;" src="<?php echo site_url(); ?>/assets/<?php echo $char['char_image']; ?>">
         </div>
 
         <div class="col-md-9">

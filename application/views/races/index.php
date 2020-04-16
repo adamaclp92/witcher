@@ -8,7 +8,7 @@
     <div class="col-md-1">
         <?php echo form_open('races/delete/'.$race['raceid']); ?>
     </div>
-    <input class="px-md-1 btn btn-danger ml-5" type="submit" value="Törlés">
+    <button class="px-md-1 ml-5 btn btn-link" type="submit">Törlés</button>
     </form>
     </div>
 <?php endforeach; ?>    

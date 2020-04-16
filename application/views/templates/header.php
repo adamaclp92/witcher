@@ -9,29 +9,45 @@
         
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="<?php echo base_url(); ?>">The Witcher</a>
-
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url(); ?>">Kezdőoldal </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>about">Rólunk</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>chars">Karakterek </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>chars/create">Karakter készítő </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>races">Fajok </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>races/create">Faj létrehozása</a>
-      </li>
+      <li class="nav-item active"> <a class="nav-link" href="<?php echo base_url(); ?>">Kezdőoldal </a></li>
+      <li><a class="nav-link" href="<?php echo base_url(); ?>about">Rólunk</a></li>
+      <li><a class="nav-link" href="<?php echo base_url(); ?>chars">Karakterek </a></li>
+      <li><a class="nav-link" href="<?php echo base_url(); ?>races">Fajok </a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="nav-link" href="<?php echo base_url(); ?>chars/create">Karakter készítő </a></li>
+      <li> <a class="nav-link" href="<?php echo base_url(); ?>races/create">Faj létrehozása</a></li>
+      <li> <a class="nav-link" href="<?php echo base_url(); ?>users/register">Regisztráció</a></li>
     </ul>
   </div>
 </nav>
 <br>
 <div class="container">
+
+
+<div class="container">
+<?php if($this->session->flashdata('user_registered')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('character_created')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('character_created').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('character_updated')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('character_updated').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('race_created')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('race_created').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('character_deleted')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('character_deleted').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('race_deleted')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('race_deleted').'</p>'; ?>
+<?php endif; ?>
