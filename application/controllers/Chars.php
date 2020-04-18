@@ -23,6 +23,11 @@
         }
 
         public function create(){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
             $data['title'] = 'Karakter készítő';
             $data['races'] = $this->char_model->get_races();
         
@@ -59,6 +64,11 @@
         }
 
         public function delete($id){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
             $this->char_model->delete_char($id);
 
             $this->session->set_flashdata('character_deleted', 'A karakter törölve.');
@@ -67,6 +77,12 @@
          }
 
          public function edit($id){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
+
             $data['char'] = $this->char_model->get_chars($id);
             $data['races'] = $this->char_model->get_races();
 
@@ -80,6 +96,11 @@
         }
 
         public function update(){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
             $this->char_model->update_char();
 
             $this->session->set_flashdata('character_updated', 'A karakter módosítva.');

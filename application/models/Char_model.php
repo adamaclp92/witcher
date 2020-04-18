@@ -33,7 +33,7 @@
         }
 
         public function update_char(){
-            $id = url_title($this->input->post('name'));
+            $id = url_title($this->input->post('id'));
 
             $data = array(
                 'name' => $this->input->post('name'),

@@ -12,6 +12,11 @@
         }
 
         public function create(){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
             $data['title'] = 'Faj hozzáadása';
             $this->form_validation->set_rules('racename', 'Racename', 'required');
             if($this->form_validation->run() === FALSE){
@@ -37,6 +42,11 @@
         }
 
         public function delete($raceid){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
             $this->race_model->delete_race($raceid);
 
             $this->session->set_flashdata('race_deleted', 'A faj törölve.');

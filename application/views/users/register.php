@@ -1,13 +1,13 @@
-<h2><?= $title; ?></h2>
-<?php echo validation_errors(); ?>
 
+<?php echo validation_errors(); ?>
+<h2 class="text-center"><?= $title; ?></h2>
 <div class="row">
 
-<div class="col-md-3">
+<div class="col-md-4">
         <img style="height: 100%; width: 100%;" src="<?php echo site_url(); ?>/assets/witcher.png">
 </div> 
 
-<div class="col-md-9">
+<div class="col-md-5">
 <?php echo form_open('users/register'); ?>
     <div class="form-group"> 
         <label>Teljes név</label>

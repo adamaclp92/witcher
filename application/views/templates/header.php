@@ -17,9 +17,21 @@
       <li><a class="nav-link" href="<?php echo base_url(); ?>races">Fajok </a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+
+      <?php if(!$this->session->userdata('logged_in')): ?>
+
+        <li> <a class="nav-link" href="<?php echo base_url(); ?>users/login">Bejelentkezés</a></li>
+        <li> <a class="nav-link" href="<?php echo base_url(); ?>users/register">Regisztráció</a></li>
+  
+      <?php endif; ?>
+      <?php if($this->session->userdata('logged_in')): ?>
+
       <li><a class="nav-link" href="<?php echo base_url(); ?>chars/create">Karakter készítő </a></li>
       <li> <a class="nav-link" href="<?php echo base_url(); ?>races/create">Faj létrehozása</a></li>
-      <li> <a class="nav-link" href="<?php echo base_url(); ?>users/register">Regisztráció</a></li>
+      <li> <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Kijelentkezés</a></li>
+
+      <?php endif; ?>
+
     </ul>
   </div>
 </nav>
@@ -50,4 +62,16 @@
 
 <?php if($this->session->flashdata('race_deleted')): ?>
   <?php echo '<p class="alert alert-success">'.$this->session->flashdata('race_deleted').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('user_loggedin')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('login_failed')): ?>
+  <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('user_loggedout')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
 <?php endif; ?>
