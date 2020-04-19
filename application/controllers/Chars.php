@@ -82,7 +82,6 @@
                 redirect('users/login');
             }
 
-
             $data['char'] = $this->char_model->get_chars($id);
             $data['races'] = $this->char_model->get_races();
 

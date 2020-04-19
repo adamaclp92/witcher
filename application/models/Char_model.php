@@ -24,7 +24,7 @@
                 'char_image' => $char_image
             );
             return $this->db->insert('characters', $data);
-        }
+        }   
 
         public function delete_char($id){
             $this->db->where('id', $id);

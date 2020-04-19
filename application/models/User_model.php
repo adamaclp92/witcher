@@ -7,7 +7,6 @@
                 'username' => $this->input->post('username'),
                 'password' => $enc_password,
             );
-
             return $this->db->insert('users', $data);
         }
 
