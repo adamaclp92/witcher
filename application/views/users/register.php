@@ -1,4 +1,3 @@
-
 <?php echo validation_errors(); ?>
 <h2 class="text-center"><?= $title; ?></h2>
 <div class="row">

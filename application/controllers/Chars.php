@@ -2,7 +2,6 @@
     class Chars extends CI_Controller{
         public function index(){
             $data['title'] = 'Karakterek';
-
             $data['chars'] = $this->char_model->get_chars();
 
             $this->load->view('templates/header');

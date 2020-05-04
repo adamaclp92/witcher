@@ -16,6 +16,7 @@
                 <a class="btn btn-success px-md-3 ml-5" href="<?php echo site_url('/chars/edit/'.$char['id']); ?>">Módosítás</a>
                 <?php echo form_open('chars/delete/'.$char['id']); ?>
                 <input class="px-md-3 btn btn-danger ml-2" type="submit" value="Törlés">
+                <a href="<?php echo site_url('/download/'.$char['char_image']); ?>" class="btn btn-primary">Kép letöltés</a>
                 </form>
             </div>
             <?php endif; ?>

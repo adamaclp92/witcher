@@ -24,7 +24,24 @@
                 $this->load->view('races/create', $data);
                 $this->load->view('templates/footer');
             }else{
-                $this->race_model->create_race();
+
+                $config['upload_path'] = './assets';
+                $config['allowed_types'] = 'gif|jpg|png|jfif';
+                $config['max_size'] = '2048';
+                $config['max_width'] = '2000';
+                $config['max_height'] = '2000';
+                
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('userfile')){
+                    $errors = array('error' =>$this->upload->display_errors());
+                    $race_image = 'noimage.jpg';
+                }else{
+                    $data = array('upload_data' => $this->upload->data());
+                    $race_image= $_FILES['userfile']['name'];
+                }
+
+                $this->race_model->create_race($race_image);
 
                 $this->session->set_flashdata('race_created', 'A faj elkészült.');
 
@@ -52,7 +69,5 @@
             $this->session->set_flashdata('race_deleted', 'A faj törölve.');
 
             redirect('races');
-         }
-
-       
+         } 
     }

@@ -10,9 +10,10 @@
             return $query->result_array(); 
         }
 
-        public function create_race(){
+        public function create_race($race_image){
             $data = array(
-                'racename' => $this->input->post('racename')
+                'racename' => $this->input->post('racename'),
+                'raceimages' => $race_image
             );
             return $this->db->insert('races', $data);
         }

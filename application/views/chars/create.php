@@ -22,7 +22,7 @@
   </div>
   
   <div class="form-group">
-    <label>Fénykép feltöltés</label><br>
+    <label>Kép feltöltése</label><br>
     <input type="file" name="userfile" size="20">
   </div>
 

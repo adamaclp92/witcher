@@ -4,13 +4,11 @@
             if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
                 show_404();
             }
-            
             if($page === 'about'){
                 $data['title'] = 'A Witcher világa';
             }else{
                 $data['title'] = 'The Witcher';
             }
-
             $this->load->view('templates/header');
             $this->load->view('pages/'.$page, $data);
             $this->load->view('templates/footer');

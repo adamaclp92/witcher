@@ -8,7 +8,7 @@
         
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="<?php echo base_url(); ?>">The Witcher</a>
-  <div class="collapse navbar-collapse" id="navbarColor02">
+  <div class=" navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active"> <a class="nav-link" href="<?php echo base_url(); ?>">Kezdőoldal </a></li>
       <li><a class="nav-link" href="<?php echo base_url(); ?>about">A Witcher világa</a></li>
@@ -16,7 +16,6 @@
       <li><a class="nav-link" href="<?php echo base_url(); ?>races">Fajok </a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-
       <?php if(!$this->session->userdata('logged_in')): ?>
 
         <li> <a class="nav-link" href="<?php echo base_url(); ?>users/login">Bejelentkezés</a></li>
@@ -35,7 +34,7 @@
   </div>
 </nav>
 <br>
-<div class="container">
+
 
 <div class="container">
 <?php if($this->session->flashdata('user_registered')): ?>
